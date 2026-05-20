@@ -254,7 +254,7 @@ export default function OnboardingPage() {
                   `Opportunity feed filtered to ${selectedNiches.length} niche${selectedNiches.length !== 1 ? "s" : ""}`,
                   `${contentTypes.join(" + ")} opportunities highlighted`,
                   "Full platform directory with sign-up links",
-                  "Saved briefs list for anything you want to apply to later",
+                  "Saved jobs list for anything you want to apply to later",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 text-sm text-gray-700">
                     <span className="text-green-500 font-bold">✓</span>

@@ -92,19 +92,19 @@ export default function OpportunitiesPage() {
           className="mb-10"
         >
           <div className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#12745f]">
-            Daily brief feed
+            Daily UGC job feed
           </div>
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <h1 className="text-6xl font-semibold leading-[0.92] tracking-[-0.055em] text-[#101410] md:text-7xl">
                 Today&apos;s
                 <br />
-                UGC briefs
+                UGC jobs
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-[#56615c]">
-                {opportunities.length} open gigs across {sourceCount} platforms.
-                Filter the noise, save what matters, and apply before briefs
-                disappear.
+                {opportunities.length} paid UGC jobs across {sourceCount} platforms.
+                Filter by niche, save the jobs that fit, then click through to
+                apply on the original platform.
               </p>
             </div>
 
@@ -121,7 +121,7 @@ export default function OpportunitiesPage() {
             <div className="relative min-w-60 flex-1">
               <Search className="absolute left-0 top-1/2 h-4 w-4 -translate-y-1/2 text-[#8a918d]" />
               <Input
-                placeholder="Search brand, brief, platform..."
+                placeholder="Search brand, job, platform..."
                 className="h-11 rounded-none border-0 border-b border-[#d9d3c8] bg-transparent pl-7 shadow-none focus-visible:ring-0"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}

@@ -103,7 +103,7 @@ export default function PlatformsPage() {
           </p>
           <p className="text-xs text-[#12745f] mt-0.5">
             {notJoinedCount > 0
-              ? `${notJoinedCount} more available — more platforms = more briefs`
+              ? `${notJoinedCount} more available — more platforms = more jobs`
               : "You're on all platforms! 🎉"}
           </p>
         </div>

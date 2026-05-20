@@ -32,7 +32,7 @@ const platformNames = [
   "Brands Meet Creators",
 ];
 
-const sampleBriefs = [
+const sampleGigs = [
   {
     platform: "SideShift",
     brand: "SwipeWell",
@@ -57,10 +57,30 @@ const sampleBriefs = [
 ];
 
 const principles = [
-  { icon: Search, label: "Find briefs" },
-  { icon: Filter, label: "Filter by niche" },
-  { icon: Bookmark, label: "Save the good ones" },
-  { icon: Send, label: "Apply faster" },
+  {
+    icon: Search,
+    label: "See all the jobs",
+    description:
+      "UGC HQ pulls paid opportunities from creator platforms into one feed.",
+  },
+  {
+    icon: Filter,
+    label: "Filter to your niche",
+    description:
+      "Beauty, fitness, tech, pets, food, lifestyle, and more. No scrolling through irrelevant work.",
+  },
+  {
+    icon: Bookmark,
+    label: "Save the best gigs",
+    description:
+      "Keep a shortlist of jobs worth applying to before they fill up.",
+  },
+  {
+    icon: Send,
+    label: "Apply on the platform",
+    description:
+      "Click through to Billo, SideShift, Insense, JoinBrands, Cohley, and the rest.",
+  },
 ];
 
 export default function LandingPage() {
@@ -104,26 +124,27 @@ export default function LandingPage() {
             >
               <div className="mb-8 inline-flex items-center gap-3 border-l-2 border-[#12745f] pl-4 text-sm text-[#56615c]">
                 <span className="font-semibold text-[#12745f]">
-                  Daily UGC brief feed
+                  Daily UGC job feed
                 </span>
                 <span>for creators tired of platform hopping</span>
               </div>
 
               <h1 className="max-w-5xl text-[clamp(3.75rem,9vw,8.8rem)] font-semibold leading-[0.88] tracking-[-0.05em]">
-                Paid briefs,
+                Paid UGC jobs,
                 <br />
                 one clean feed.
               </h1>
 
               <div className="mt-8 grid max-w-3xl gap-6 md:grid-cols-[1fr_0.62fr]">
                 <p className="text-lg leading-8 text-[#505b55]">
-                  UGC HQ collects paid creator opportunities from SideShift,
-                  Billo, Insense, JoinBrands, Cohley, Collabstr, and more, then
-                  filters them by your niche.
+                  UGC HQ is a job board for UGC creators. It collects paid gigs
+                  from platforms like SideShift, Billo, Insense, JoinBrands,
+                  Cohley, and Collabstr so you can find work without checking
+                  every app.
                 </p>
                 <div className="border-l border-[#d9d3c8] pl-5 text-sm leading-7 text-[#68736e]">
-                  No fake dashboard energy. Just the thing creators open every
-                  morning before applying.
+                  Open UGC HQ, scan new paid opportunities, save the ones that
+                  fit, and click through to apply on the original platform.
                 </div>
               </div>
 
@@ -160,8 +181,8 @@ export default function LandingPage() {
                 <div className="flex items-center gap-3">
                   <LogoMark className="h-10 w-10 rounded-[14px]" />
                   <div>
-                    <p className="font-semibold">Matched today</p>
-                    <p className="text-sm text-[#748079]">14 new briefs</p>
+                    <p className="font-semibold">Matched jobs today</p>
+                    <p className="text-sm text-[#748079]">14 new paid gigs</p>
                   </div>
                 </div>
                 <span className="text-sm font-semibold text-[#12745f]">
@@ -170,9 +191,9 @@ export default function LandingPage() {
               </div>
 
               <div className="divide-y divide-[#d9d3c8] border-y border-[#d9d3c8]">
-                {sampleBriefs.map((brief, index) => (
+                {sampleGigs.map((gig, index) => (
                   <motion.div
-                    key={`${brief.platform}-${brief.brand}`}
+                    key={`${gig.platform}-${gig.brand}`}
                     initial={{ opacity: 0, x: 18 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.45, delay: 0.18 + index * 0.08 }}
@@ -180,17 +201,17 @@ export default function LandingPage() {
                   >
                     <div>
                       <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-[#7a837f]">
-                        <span>{brief.platform}</span>
+                        <span>{gig.platform}</span>
                         <span className="h-1 w-1 bg-[#12745f]" />
-                        <span>{brief.tag}</span>
+                        <span>{gig.tag}</span>
                       </div>
-                      <p className="text-lg font-semibold">{brief.brand}</p>
+                      <p className="text-lg font-semibold">{gig.brand}</p>
                       <p className="mt-1 text-sm text-[#59645f]">
-                        {brief.title}
+                        {gig.title}
                       </p>
                     </div>
                     <div className="self-start text-right text-xl font-semibold text-[#12745f]">
-                      {brief.pay}
+                      {gig.pay}
                     </div>
                   </motion.div>
                 ))}
@@ -216,7 +237,7 @@ export default function LandingPage() {
                 Product loop
               </p>
               <h2 className="text-5xl font-semibold leading-none tracking-[-0.04em]">
-                Open. Scan. Save. Apply.
+                How creators use it.
               </h2>
             </div>
             <div className="grid gap-x-8 gap-y-7 md:grid-cols-2">
@@ -224,6 +245,9 @@ export default function LandingPage() {
                 <div key={item.label} className="border-t border-[#d9d3c8] pt-5">
                   <item.icon className="mb-8 h-5 w-5 text-[#12745f]" />
                   <p className="text-xl font-semibold">{item.label}</p>
+                  <p className="mt-2 text-sm leading-6 text-[#68736e]">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>

@@ -100,7 +100,7 @@ export default function ProfilePage() {
               <p className="font-semibold text-gray-900">Feed status</p>
             </div>
             <p className="text-sm leading-6 text-gray-500">
-              Your feed is currently matched against seeded briefs. The next
+              Your feed is currently matched against seeded jobs. The next
               build step is live collection from public listings, email digests,
               and community submissions.
             </p>

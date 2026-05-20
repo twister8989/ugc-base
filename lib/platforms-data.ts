@@ -57,7 +57,7 @@ export const platforms: Platform[] = [
     paymentMethod: "Bank transfer",
     paymentFrequency: "Per gig / performance",
     notes:
-      "High-volume feed. Check posting requirements carefully because some briefs require social posting or performance payouts.",
+      "High-volume feed. Check posting requirements carefully because some jobs require social posting or performance payouts.",
     tags: ["mobile-app", "one-tap-apply", "performance-payouts"],
     rating: 4.0,
   },
@@ -178,7 +178,7 @@ export const platforms: Platform[] = [
     signupUrl: "https://www.usetwirl.com/for-creators",
     logo: "T",
     description:
-      "Video-first UGC platform focused on short-form content. Strong TikTok-style briefs.",
+      "Video-first UGC platform focused on short-form content. Strong TikTok-style jobs.",
     avgPay: "$75–$200",
     payRange: "$50–$300",
     niches: ["beauty", "lifestyle", "food", "fitness", "fashion"],
@@ -239,7 +239,7 @@ export const platforms: Platform[] = [
     signupUrl: "https://popularpays.com/creator",
     logo: "PP",
     description:
-      "Chicago-based platform with strong CPG and DTC brand presence. Creative briefs.",
+      "Chicago-based platform with strong CPG and DTC brand presence. Creative jobs.",
     avgPay: "$100–$350",
     payRange: "$75–$700",
     niches: ["food", "beauty", "lifestyle", "fitness", "fashion", "home"],

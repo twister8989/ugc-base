@@ -5,12 +5,14 @@ export function LogoMark({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative h-9 w-9 overflow-hidden rounded-[13px] bg-[#12745f] shadow-[inset_0_-10px_18px_rgba(0,0,0,0.08)]",
+        "relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-[13px] bg-[#12745f] shadow-[inset_0_-10px_18px_rgba(0,0,0,0.08)]",
         className
       )}
     >
-      <div className="absolute -right-2 -top-2 h-5 w-5 rounded-full bg-[#18a17f]/60" />
-      <div className="absolute bottom-2 right-2 h-2 w-2 rounded-full bg-white/18" />
+      <span className="relative z-10 text-[10px] font-black leading-none tracking-[-0.08em] text-white">
+        UGC
+      </span>
+      <div className="absolute bottom-1 right-1 h-2 w-2 border-b-2 border-r-2 border-white/75" />
     </div>
   );
 }

@@ -25,7 +25,7 @@ export default function SavedPage() {
   return (
     <div className="max-w-5xl p-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Saved briefs</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Saved jobs</h1>
         <p className="mt-1 text-gray-500">
           Your shortlist of UGC gigs worth applying to later.
         </p>
@@ -36,7 +36,7 @@ export default function SavedPage() {
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e5f6f0]">
             <BookmarkCheck className="h-6 w-6 text-[#12745f]" />
           </div>
-          <h2 className="font-semibold text-gray-900">No saved briefs yet</h2>
+          <h2 className="font-semibold text-gray-900">No saved jobs yet</h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-gray-500">
             Save anything interesting from the opportunity feed so you can come
             back and apply when you have time.

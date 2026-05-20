@@ -59,7 +59,7 @@ export function Nav() {
           <Bell className="h-4 w-4 text-[#12745f]" />
         </div>
         <p className="mb-1 text-sm font-semibold text-[#10231e]">
-          Daily brief alerts
+          Daily gig alerts
         </p>
         <p className="mb-3 text-xs leading-5 text-[#69746f]">
           Get fresh paid UGC gigs sent to your inbox every morning.
