@@ -27,6 +27,7 @@ import {
   getSavedOpportunities,
   toggleSavedOpportunity,
 } from "@/lib/store";
+import { cn } from "@/lib/utils";
 import { formatDistanceToNow } from "date-fns";
 
 export default function OpportunitiesPage() {
@@ -42,9 +43,6 @@ export default function OpportunitiesPage() {
     setSaved(getSavedOpportunities());
     const profile = getProfile();
     setProfileNiches(profile?.niches ?? []);
-    if (profile?.niches?.length) {
-      setNicheFilter(profile.niches[0]);
-    }
   }, []);
 
   const handleSave = (id: string) => {
@@ -117,6 +115,29 @@ export default function OpportunitiesPage() {
         </motion.header>
 
         <div className="mb-8 border-y border-[#d9d3c8] py-4">
+          {profileNiches.length > 0 && (
+            <div className="mb-4 flex flex-wrap items-center gap-2 text-sm">
+              <span className="mr-1 text-[#68736e]">Your categories:</span>
+              {profileNiches.map((niche) => {
+                const details = niches.find((item) => item.value === niche);
+                const active = nicheFilter === niche;
+                return (
+                  <button
+                    key={niche}
+                    onClick={() => setNicheFilter(active ? "all" : niche)}
+                    className={cn(
+                      "border px-2.5 py-1 text-xs font-medium transition-colors",
+                      active
+                        ? "border-[#12745f] bg-[#12745f] text-white"
+                        : "border-[#d9d3c8] text-[#56615c] hover:border-[#12745f] hover:text-[#12745f]"
+                    )}
+                  >
+                    {details?.emoji} {details?.label ?? niche}
+                  </button>
+                );
+              })}
+            </div>
+          )}
           <div className="flex flex-wrap gap-3">
             <div className="relative min-w-60 flex-1">
               <Search className="absolute left-0 top-1/2 h-4 w-4 -translate-y-1/2 text-[#8a918d]" />
