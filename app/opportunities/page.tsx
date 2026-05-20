@@ -38,10 +38,12 @@ export default function OpportunitiesPage() {
   const [typeFilter, setTypeFilter] = useState<string>("all");
   const [showSaved, setShowSaved] = useState(false);
   const [saved, setSaved] = useState<string[]>([]);
+  const [profileNiches, setProfileNiches] = useState<Niche[]>([]);
 
   useEffect(() => {
     setSaved(getSavedOpportunities());
     const profile = getProfile();
+    setProfileNiches(profile?.niches ?? []);
     if (profile?.niches?.length) {
       setNicheFilter(profile.niches[0]);
     }
@@ -55,6 +57,9 @@ export default function OpportunitiesPage() {
   const platformNames = Array.from(
     new Set(opportunities.map((o) => o.platformName))
   ).sort();
+  const newCount = opportunities.filter((o) => o.isNew).length;
+  const sourceCount = new Set(opportunities.map((o) => o.platformId)).size;
+  const paidCount = opportunities.filter((o) => !o.giftedOnly).length;
 
   const filtered = opportunities.filter((opp) => {
     if (showSaved && !saved.includes(opp.id)) return false;
@@ -77,11 +82,40 @@ export default function OpportunitiesPage() {
     <div className="p-8 max-w-5xl">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Opportunities</h1>
+        <Badge className="mb-3 bg-violet-50 text-violet-700 border-0">
+          Feed-first MVP
+        </Badge>
+        <h1 className="text-2xl font-bold text-gray-900">
+          Today&apos;s UGC briefs
+        </h1>
         <p className="text-gray-500 mt-1">
-          {opportunities.length} open gigs across{" "}
-          {new Set(opportunities.map((o) => o.platformId)).size} platforms
+          {opportunities.length} open gigs across {sourceCount} platforms.
+          Filter by niche, pay attention to posting requirements, and save the
+          briefs worth applying to.
         </p>
+      </div>
+
+      <div className="grid grid-cols-3 gap-3 mb-6">
+        <div className="rounded-2xl border border-gray-100 bg-white p-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-gray-400">
+            New today
+          </p>
+          <p className="mt-1 text-2xl font-bold text-gray-900">{newCount}</p>
+        </div>
+        <div className="rounded-2xl border border-gray-100 bg-white p-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-gray-400">
+            Paid briefs
+          </p>
+          <p className="mt-1 text-2xl font-bold text-gray-900">{paidCount}</p>
+        </div>
+        <div className="rounded-2xl border border-gray-100 bg-white p-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-gray-400">
+            Your niches
+          </p>
+          <p className="mt-1 truncate text-2xl font-bold text-gray-900">
+            {profileNiches.length || "All"}
+          </p>
+        </div>
       </div>
 
       {/* Filters */}
@@ -235,6 +269,16 @@ function OpportunityCard({
                     {opp.spotsLeft} spots left
                   </Badge>
                 )}
+                {opp.requiresPosting && (
+                  <Badge className="text-[10px] bg-orange-50 text-orange-600 border-0 h-4 px-1.5">
+                    Posting required
+                  </Badge>
+                )}
+                {opp.country && (
+                  <Badge className="text-[10px] bg-blue-50 text-blue-700 border-0 h-4 px-1.5">
+                    {opp.country}
+                  </Badge>
+                )}
               </div>
               <h3 className="font-semibold text-gray-900">{opp.brand}</h3>
               <p className="text-sm text-gray-600 mt-0.5">{opp.title}</p>
@@ -278,6 +322,22 @@ function OpportunityCard({
                 {nicheLookup[n]?.emoji} {nicheLookup[n]?.label ?? n}
               </Badge>
             ))}
+            {opp.sourceType && (
+              <Badge
+                variant="secondary"
+                className="text-xs bg-gray-100 text-gray-500 border-0"
+              >
+                Source: {opp.sourceType}
+              </Badge>
+            )}
+            {opp.followerRequirement && (
+              <Badge
+                variant="secondary"
+                className="text-xs bg-gray-100 text-gray-500 border-0"
+              >
+                {opp.followerRequirement}
+              </Badge>
+            )}
           </div>
 
           {/* Footer */}

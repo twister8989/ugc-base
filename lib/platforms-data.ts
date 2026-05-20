@@ -41,6 +41,27 @@ export interface Platform {
 
 export const platforms: Platform[] = [
   {
+    id: "sideshift",
+    name: "SideShift",
+    url: "https://sideshift.app",
+    signupUrl: "https://sideshift.app/creators",
+    logo: "SS",
+    description:
+      "Mobile-first UGC marketplace with one-tap applications, creator jobs, and performance-based opportunities.",
+    avgPay: "$30–$150+",
+    payRange: "$30–$500+",
+    niches: ["tech", "beauty", "fitness", "lifestyle", "fashion", "food"],
+    contentTypes: ["video"],
+    approvalDifficulty: "easy",
+    followerRequired: false,
+    paymentMethod: "Bank transfer",
+    paymentFrequency: "Per gig / performance",
+    notes:
+      "High-volume feed. Check posting requirements carefully because some briefs require social posting or performance payouts.",
+    tags: ["mobile-app", "one-tap-apply", "performance-payouts"],
+    rating: 4.0,
+  },
+  {
     id: "billo",
     name: "Billo",
     url: "https://billo.app",

@@ -5,17 +5,17 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
   Zap,
-  LayoutDashboard,
   Search,
   LayoutGrid,
-  DollarSign,
+  Bookmark,
+  User,
 } from "lucide-react";
 
 const navItems = [
-  { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/opportunities", icon: Search, label: "Opportunities" },
   { href: "/platforms", icon: LayoutGrid, label: "Platforms" },
-  { href: "/income", icon: DollarSign, label: "Income" },
+  { href: "/saved", icon: Bookmark, label: "Saved" },
+  { href: "/profile", icon: User, label: "Profile" },
 ];
 
 export function Nav() {
@@ -29,7 +29,7 @@ export function Nav() {
           <div className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center">
             <Zap className="w-4 h-4 text-white" />
           </div>
-          <span className="font-bold text-gray-900">UGC Base</span>
+          <span className="font-bold text-gray-900">UGC HQ</span>
         </Link>
       </div>
 
@@ -60,16 +60,15 @@ export function Nav() {
         })}
       </nav>
 
-      {/* Pro badge */}
       <div className="mx-3 mb-4 p-3 rounded-xl bg-violet-50 border border-violet-100">
         <p className="text-xs font-semibold text-violet-700 mb-1">
-          ✨ Upgrade to Pro
+          Daily brief alerts
         </p>
         <p className="text-xs text-violet-500 mb-2">
-          Unlimited history, AI tools & tax reports
+          Get fresh paid UGC gigs sent to your inbox every morning.
         </p>
         <button className="w-full text-xs bg-violet-600 text-white rounded-lg py-1.5 font-medium hover:bg-violet-700 transition-colors">
-          $14/mo — Try free
+          Join the waitlist
         </button>
       </div>
     </aside>

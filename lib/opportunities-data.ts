@@ -18,10 +18,65 @@ export interface Opportunity {
   applyUrl: string;
   isNew: boolean;
   spotsLeft?: number;
+  country?: string;
+  sourceType?: "public" | "logged-in" | "email" | "community";
+  requiresPosting?: boolean;
+  giftedOnly?: boolean;
+  followerRequirement?: string;
 }
 
 // Seed opportunities — in production these get scraped / submitted by users
 export const opportunities: Opportunity[] = [
+  {
+    id: "opp-sideshift-1",
+    platformId: "sideshift",
+    platformName: "SideShift",
+    brand: "SwipeWell",
+    title: "Dating app testimonial, TikTok style",
+    description:
+      "Create a fast-cut testimonial about trying a new dating app feature. Hook-heavy UGC style, selfie format, casual voiceover accepted.",
+    payMin: 75,
+    payMax: 150,
+    payDisplay: "$75 + CPM",
+    niches: ["tech", "lifestyle"],
+    contentType: "video",
+    deliverables: ["1x 15-sec video", "Posted TikTok/Reel"],
+    deadline: "2026-05-29",
+    postedAt: "2026-05-20",
+    applyUrl: "https://sideshift.app/creators",
+    isNew: true,
+    spotsLeft: 6,
+    country: "US",
+    sourceType: "logged-in",
+    requiresPosting: true,
+    giftedOnly: false,
+    followerRequirement: "No minimum listed",
+  },
+  {
+    id: "opp-sideshift-2",
+    platformId: "sideshift",
+    platformName: "SideShift",
+    brand: "StudySprint",
+    title: "Student productivity app UGC",
+    description:
+      "Film a short day-in-the-life clip showing how you use a focus timer app between classes, work, or content shoots.",
+    payMin: 50,
+    payMax: 120,
+    payDisplay: "$50–$120",
+    niches: ["tech", "lifestyle"],
+    contentType: "video",
+    deliverables: ["1x 20-sec video", "Raw footage"],
+    deadline: "2026-06-02",
+    postedAt: "2026-05-20",
+    applyUrl: "https://sideshift.app/creators",
+    isNew: true,
+    spotsLeft: 11,
+    country: "US",
+    sourceType: "logged-in",
+    requiresPosting: false,
+    giftedOnly: false,
+    followerRequirement: "No minimum listed",
+  },
   {
     id: "opp-1",
     platformId: "billo",

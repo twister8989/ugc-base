@@ -90,8 +90,8 @@ export default function PlatformsPage() {
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">Platform Directory</h1>
         <p className="text-gray-500 mt-1">
-          {platforms.length} UGC platforms reviewed. Track which ones you&apos;ve
-          joined.
+          {platforms.length} UGC platforms reviewed. Know where to sign up
+          before the feed gets automated.
         </p>
       </div>
 
@@ -103,7 +103,7 @@ export default function PlatformsPage() {
           </p>
           <p className="text-xs text-violet-600 mt-0.5">
             {notJoinedCount > 0
-              ? `${notJoinedCount} more available — more platforms = more income`
+              ? `${notJoinedCount} more available — more platforms = more briefs`
               : "You're on all platforms! 🎉"}
           </p>
         </div>

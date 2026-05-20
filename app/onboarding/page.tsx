@@ -41,7 +41,7 @@ export default function OnboardingPage() {
       platforms: [],
       onboarded: true,
     });
-    router.push("/dashboard");
+    router.push("/opportunities");
   };
 
   return (
@@ -52,7 +52,7 @@ export default function OnboardingPage() {
           <div className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center">
             <Zap className="w-4 h-4 text-white" />
           </div>
-          <span className="font-bold text-xl text-gray-900">UGC Base</span>
+          <span className="font-bold text-xl text-gray-900">UGC HQ</span>
         </div>
 
         {/* Progress */}
@@ -88,10 +88,10 @@ export default function OnboardingPage() {
           {step === 0 && (
             <div>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                Welcome to UGC Base 👋
+                Welcome to UGC HQ
               </h1>
               <p className="text-gray-500 mb-8">
-                Let&apos;s get you set up. Takes about 60 seconds.
+                Let&apos;s set up your opportunity feed. Takes about 60 seconds.
               </p>
               <div>
                 <Label className="text-sm font-medium mb-2 block">
@@ -248,14 +248,14 @@ export default function OnboardingPage() {
                 You&apos;re all set, {name.split(" ")[0]}!
               </h2>
               <p className="text-gray-500 mb-6">
-                Your dashboard is ready. Here&apos;s what you&apos;ve unlocked:
+                Your feed is ready. Here&apos;s what you&apos;ve unlocked:
               </p>
               <div className="space-y-2 text-left mb-8">
                 {[
                   `Opportunity feed filtered to ${selectedNiches.length} niche${selectedNiches.length !== 1 ? "s" : ""}`,
                   `${contentTypes.join(" + ")} opportunities highlighted`,
                   "Full platform directory with sign-up links",
-                  "Income tracker ready to use",
+                  "Saved briefs list for anything you want to apply to later",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 text-sm text-gray-700">
                     <span className="text-green-500 font-bold">✓</span>
@@ -280,7 +280,7 @@ export default function OnboardingPage() {
                 className="w-full bg-violet-600 hover:bg-violet-700 gap-2 text-base py-5"
                 onClick={handleFinish}
               >
-                Go to my dashboard <ChevronRight className="w-4 h-4" />
+                Go to my feed <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
           )}

@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UGC Base — Creator HQ",
+  title: "UGC HQ — Paid UGC Opportunities",
   description:
-    "The all-in-one platform for UGC creators. Find opportunities, track income, and grow across every platform.",
+    "Find paid UGC gigs across Billo, SideShift, Insense, JoinBrands, Cohley, Collabstr, and more.",
 };
 
 export default function RootLayout({
