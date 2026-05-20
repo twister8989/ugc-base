@@ -96,12 +96,12 @@ export default function PlatformsPage() {
       </div>
 
       {/* Progress banner */}
-      <div className="bg-violet-50 border border-violet-100 rounded-2xl p-4 mb-6 flex items-center justify-between">
+      <div className="bg-[#e5f6f0] border border-[#b7ded1] rounded-[28px] p-4 mb-6 flex items-center justify-between">
         <div>
-          <p className="font-semibold text-violet-900 text-sm">
+          <p className="font-semibold text-[#10231e] text-sm">
             You&apos;re on {joinedCount} platform{joinedCount !== 1 ? "s" : ""}
           </p>
-          <p className="text-xs text-violet-600 mt-0.5">
+          <p className="text-xs text-[#12745f] mt-0.5">
             {notJoinedCount > 0
               ? `${notJoinedCount} more available — more platforms = more briefs`
               : "You're on all platforms! 🎉"}
@@ -112,7 +112,7 @@ export default function PlatformsPage() {
             <div
               key={p.id}
               className={`w-2.5 h-2.5 rounded-full ${
-                joined.includes(p.id) ? "bg-violet-600" : "bg-violet-200"
+                joined.includes(p.id) ? "bg-[#12745f]" : "bg-[#b7ded1]"
               }`}
               title={p.name}
             />
@@ -205,12 +205,12 @@ function PlatformCard({
   return (
     <div
       className={`bg-white rounded-2xl border p-5 transition-all hover:shadow-sm ${
-        joined ? "border-violet-200 bg-violet-50/30" : "border-gray-100"
+        joined ? "border-[#b7ded1] bg-[#e5f6f0]/35" : "border-[#e8e5dd]"
       }`}
     >
       <div className="flex items-start gap-4">
         {/* Logo */}
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shrink-0 text-white font-bold text-sm">
+        <div className="w-12 h-12 rounded-[18px] bg-[#12745f] flex items-center justify-center shrink-0 text-white font-bold text-sm">
           {platform.logo}
         </div>
 
@@ -227,7 +227,7 @@ function PlatformCard({
                   </span>
                 </div>
                 {joined && (
-                  <Badge className="text-[10px] bg-violet-100 text-violet-700 border-0 h-4 px-1.5">
+                  <Badge className="text-[10px] bg-[#e5f6f0] text-[#12745f] border-0 h-4 px-1.5">
                     ✓ Joined
                   </Badge>
                 )}
@@ -301,11 +301,11 @@ function PlatformCard({
             <div className="flex items-center gap-2">
               <button
                 onClick={onToggle}
-                className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-violet-700 transition-colors"
+                className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-[#12745f] transition-colors"
               >
                 {joined ? (
                   <>
-                    <CheckCircle2 className="w-4 h-4 text-violet-600" />
+                    <CheckCircle2 className="w-4 h-4 text-[#12745f]" />
                     Joined
                   </>
                 ) : (
@@ -325,8 +325,8 @@ function PlatformCard({
                   variant={joined ? "outline" : "default"}
                   className={
                     joined
-                      ? "h-8 text-xs border-violet-200 text-violet-700 hover:bg-violet-50"
-                      : "h-8 text-xs bg-violet-600 hover:bg-violet-700"
+                      ? "h-8 rounded-full text-xs border-[#b7ded1] text-[#12745f] hover:bg-[#e5f6f0]"
+                      : "h-8 rounded-full text-xs bg-[#12745f] hover:bg-[#0f604f]"
                   }
                 >
                   {joined ? "Visit" : "Sign up"}{" "}

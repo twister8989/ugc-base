@@ -32,8 +32,8 @@ export default function ProfilePage() {
       <div className="grid gap-4 md:grid-cols-[1fr_0.85fr]">
         <div className="rounded-2xl border border-gray-100 bg-white p-6">
           <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-50">
-              <User className="h-6 w-6 text-violet-600" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e5f6f0]">
+              <User className="h-6 w-6 text-[#12745f]" />
             </div>
             <div>
               <p className="font-semibold text-gray-900">
@@ -51,7 +51,7 @@ export default function ProfilePage() {
                   selectedNiches.map((niche) => (
                     <Badge
                       key={niche.value}
-                      className="bg-violet-50 text-violet-700 border-violet-100"
+                      className="bg-[#e5f6f0] text-[#12745f] border-[#b7ded1]"
                     >
                       {niche.emoji} {niche.label}
                     </Badge>
@@ -96,7 +96,7 @@ export default function ProfilePage() {
         <div className="space-y-4">
           <div className="rounded-2xl border border-gray-100 bg-white p-5">
             <div className="mb-2 flex items-center gap-2">
-              <Search className="h-4 w-4 text-violet-600" />
+              <Search className="h-4 w-4 text-[#12745f]" />
               <p className="font-semibold text-gray-900">Feed status</p>
             </div>
             <p className="text-sm leading-6 text-gray-500">
@@ -108,7 +108,7 @@ export default function ProfilePage() {
 
           <div className="rounded-2xl border border-gray-100 bg-white p-5">
             <div className="mb-2 flex items-center gap-2">
-              <LayoutGrid className="h-4 w-4 text-violet-600" />
+              <LayoutGrid className="h-4 w-4 text-[#12745f]" />
               <p className="font-semibold text-gray-900">Platform coverage</p>
             </div>
             <p className="text-sm text-gray-500">
@@ -116,7 +116,7 @@ export default function ProfilePage() {
               as joined.
             </p>
             <Link href="/platforms" className="mt-4 inline-block">
-              <Button size="sm" className="bg-violet-600 hover:bg-violet-700">
+              <Button size="sm" className="rounded-full bg-[#12745f] hover:bg-[#0f604f]">
                 Manage platforms
               </Button>
             </Link>

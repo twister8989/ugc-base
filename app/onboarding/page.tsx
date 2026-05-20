@@ -10,6 +10,7 @@ import { Zap, ChevronRight, Check } from "lucide-react";
 import { niches, Niche } from "@/lib/platforms-data";
 import { saveProfile } from "@/lib/store";
 import { cn } from "@/lib/utils";
+import { LogoMark } from "@/components/logo";
 
 const steps = ["Welcome", "Your niche", "Content type", "Done"];
 
@@ -45,13 +46,11 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#fbfaf6] flex items-center justify-center px-4">
       <div className="w-full max-w-lg">
         {/* Logo */}
         <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center">
-            <Zap className="w-4 h-4 text-white" />
-          </div>
+          <LogoMark />
           <span className="font-bold text-xl text-gray-900">UGC HQ</span>
         </div>
 
@@ -63,9 +62,9 @@ export default function OnboardingPage() {
                 className={cn(
                   "w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium transition-all",
                   i < step
-                    ? "bg-violet-600 text-white"
+                    ? "bg-[#12745f] text-white"
                     : i === step
-                    ? "bg-violet-600 text-white"
+                    ? "bg-[#12745f] text-white"
                     : "bg-gray-200 text-gray-400"
                 )}
               >
@@ -75,7 +74,7 @@ export default function OnboardingPage() {
                 <div
                   className={cn(
                     "w-8 h-0.5 transition-all",
-                    i < step ? "bg-violet-600" : "bg-gray-200"
+                    i < step ? "bg-[#12745f]" : "bg-gray-200"
                   )}
                 />
               )}
@@ -84,7 +83,7 @@ export default function OnboardingPage() {
         </div>
 
         {/* Card */}
-        <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8">
+        <div className="bg-white rounded-[32px] border border-[#e8e5dd] shadow-sm p-8">
           {step === 0 && (
             <div>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">
@@ -107,7 +106,7 @@ export default function OnboardingPage() {
                 />
               </div>
               <Button
-                className="w-full mt-6 bg-violet-600 hover:bg-violet-700 gap-2"
+                className="w-full mt-6 bg-[#12745f] hover:bg-[#0f604f] gap-2 rounded-full"
                 disabled={!name.trim()}
                 onClick={() => setStep(1)}
               >
@@ -134,8 +133,8 @@ export default function OnboardingPage() {
                       className={cn(
                         "px-3.5 py-2 rounded-xl text-sm font-medium border transition-all",
                         active
-                          ? "bg-violet-600 text-white border-violet-600"
-                          : "bg-white text-gray-700 border-gray-200 hover:border-violet-300"
+                          ? "bg-[#12745f] text-white border-[#12745f]"
+                          : "bg-white text-gray-700 border-gray-200 hover:border-[#12745f]"
                       )}
                     >
                       {n.emoji} {n.label}
@@ -152,7 +151,7 @@ export default function OnboardingPage() {
                   Back
                 </Button>
                 <Button
-                  className="flex-1 bg-violet-600 hover:bg-violet-700 gap-2"
+                  className="flex-1 bg-[#12745f] hover:bg-[#0f604f] gap-2 rounded-full"
                   disabled={selectedNiches.length === 0}
                   onClick={() => setStep(2)}
                 >
@@ -193,8 +192,8 @@ export default function OnboardingPage() {
                       className={cn(
                         "w-full p-4 rounded-xl border text-left transition-all",
                         active
-                          ? "border-violet-600 bg-violet-50"
-                          : "border-gray-200 hover:border-violet-200 bg-white"
+                          ? "border-[#12745f] bg-[#e5f6f0]"
+                          : "border-gray-200 hover:border-[#b7ded1] bg-white"
                       )}
                     >
                       <div className="flex items-center gap-3">
@@ -203,7 +202,7 @@ export default function OnboardingPage() {
                           <p
                             className={cn(
                               "font-semibold",
-                              active ? "text-violet-700" : "text-gray-900"
+                              active ? "text-[#12745f]" : "text-gray-900"
                             )}
                           >
                             {ct.label}
@@ -211,7 +210,7 @@ export default function OnboardingPage() {
                           <p className="text-sm text-gray-500">{ct.desc}</p>
                         </div>
                         {active && (
-                          <div className="ml-auto w-5 h-5 rounded-full bg-violet-600 flex items-center justify-center">
+                          <div className="ml-auto w-5 h-5 rounded-full bg-[#12745f] flex items-center justify-center">
                             <Check className="w-3 h-3 text-white" />
                           </div>
                         )}
@@ -229,7 +228,7 @@ export default function OnboardingPage() {
                   Back
                 </Button>
                 <Button
-                  className="flex-1 bg-violet-600 hover:bg-violet-700 gap-2"
+                  className="flex-1 bg-[#12745f] hover:bg-[#0f604f] gap-2 rounded-full"
                   disabled={contentTypes.length === 0}
                   onClick={() => setStep(3)}
                 >
@@ -241,8 +240,8 @@ export default function OnboardingPage() {
 
           {step === 3 && (
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-violet-100 flex items-center justify-center mx-auto mb-6">
-                <Zap className="w-8 h-8 text-violet-600" />
+              <div className="w-16 h-16 rounded-2xl bg-[#e5f6f0] flex items-center justify-center mx-auto mb-6">
+                <Zap className="w-8 h-8 text-[#12745f]" />
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 You&apos;re all set, {name.split(" ")[0]}!
@@ -269,7 +268,7 @@ export default function OnboardingPage() {
                   return (
                     <Badge
                       key={n}
-                      className="bg-violet-50 text-violet-700 border-violet-100"
+                      className="bg-[#e5f6f0] text-[#12745f] border-[#b7ded1]"
                     >
                       {niche?.emoji} {niche?.label}
                     </Badge>
@@ -277,7 +276,7 @@ export default function OnboardingPage() {
                 })}
               </div>
               <Button
-                className="w-full bg-violet-600 hover:bg-violet-700 gap-2 text-base py-5"
+                className="w-full bg-[#12745f] hover:bg-[#0f604f] gap-2 text-base py-5 rounded-full"
                 onClick={handleFinish}
               >
                 Go to my feed <ChevronRight className="w-4 h-4" />

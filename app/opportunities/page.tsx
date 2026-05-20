@@ -18,6 +18,8 @@ import {
   ExternalLink,
   Clock,
   Users,
+  SlidersHorizontal,
+  Sparkles,
 } from "lucide-react";
 import {
   opportunities,
@@ -79,59 +81,45 @@ export default function OpportunitiesPage() {
   });
 
   return (
-    <div className="p-8 max-w-5xl">
-      {/* Header */}
-      <div className="mb-6">
-        <Badge className="mb-3 bg-violet-50 text-violet-700 border-0">
-          Feed-first MVP
-        </Badge>
-        <h1 className="text-2xl font-bold text-gray-900">
-          Today&apos;s UGC briefs
-        </h1>
-        <p className="text-gray-500 mt-1">
-          {opportunities.length} open gigs across {sourceCount} platforms.
-          Filter by niche, pay attention to posting requirements, and save the
-          briefs worth applying to.
-        </p>
-      </div>
+    <div className="min-h-screen bg-[#fbfaf6] p-6 lg:p-8">
+      <div className="max-w-6xl">
+        <div className="mb-6 rounded-[32px] bg-[#10231e] p-6 text-white shadow-[0_20px_70px_rgba(16,35,30,0.18)]">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <Badge className="mb-4 rounded-full bg-[#36d5aa]/15 text-[#36d5aa]">
+                <Sparkles className="mr-1.5 h-3.5 w-3.5" />
+                Feed-first MVP
+              </Badge>
+              <h1 className="text-4xl font-semibold tracking-tight">
+                Today&apos;s UGC briefs
+              </h1>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-white/62">
+                {opportunities.length} open gigs across {sourceCount} platforms.
+                Filter by niche, check posting requirements, and save the briefs
+                worth applying to.
+              </p>
+            </div>
+            <div className="grid grid-cols-3 gap-2 md:min-w-80">
+              <StatPill label="New" value={newCount} />
+              <StatPill label="Paid" value={paidCount} />
+              <StatPill label="Niches" value={profileNiches.length || "All"} />
+            </div>
+          </div>
+        </div>
 
-      <div className="grid grid-cols-3 gap-3 mb-6">
-        <div className="rounded-2xl border border-gray-100 bg-white p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-gray-400">
-            New today
-          </p>
-          <p className="mt-1 text-2xl font-bold text-gray-900">{newCount}</p>
-        </div>
-        <div className="rounded-2xl border border-gray-100 bg-white p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-gray-400">
-            Paid briefs
-          </p>
-          <p className="mt-1 text-2xl font-bold text-gray-900">{paidCount}</p>
-        </div>
-        <div className="rounded-2xl border border-gray-100 bg-white p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-gray-400">
-            Your niches
-          </p>
-          <p className="mt-1 truncate text-2xl font-bold text-gray-900">
-            {profileNiches.length || "All"}
-          </p>
-        </div>
-      </div>
-
-      {/* Filters */}
-      <div className="flex flex-wrap gap-3 mb-6">
+      <div className="mb-6 flex flex-wrap gap-3 rounded-[28px] border border-[#e8e5dd] bg-white p-3 shadow-sm">
         <div className="relative flex-1 min-w-48">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#8a918d]" />
           <Input
             placeholder="Search brands, gigs..."
-            className="pl-9 bg-white border-gray-200"
+            className="h-11 rounded-2xl border-[#e4e0d8] bg-[#fbfaf6] pl-10"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
 
         <Select value={nicheFilter} onValueChange={(v) => setNicheFilter(v ?? "all")}>
-          <SelectTrigger className="w-44 bg-white border-gray-200">
+          <SelectTrigger className="h-11 w-44 rounded-2xl border-[#e4e0d8] bg-[#fbfaf6]">
             <SelectValue placeholder="All niches" />
           </SelectTrigger>
           <SelectContent>
@@ -145,7 +133,7 @@ export default function OpportunitiesPage() {
         </Select>
 
         <Select value={platformFilter} onValueChange={(v) => setPlatformFilter(v ?? "all")}>
-          <SelectTrigger className="w-44 bg-white border-gray-200">
+          <SelectTrigger className="h-11 w-44 rounded-2xl border-[#e4e0d8] bg-[#fbfaf6]">
             <SelectValue placeholder="All platforms" />
           </SelectTrigger>
           <SelectContent>
@@ -159,7 +147,7 @@ export default function OpportunitiesPage() {
         </Select>
 
         <Select value={typeFilter} onValueChange={(v) => setTypeFilter(v ?? "all")}>
-          <SelectTrigger className="w-36 bg-white border-gray-200">
+          <SelectTrigger className="h-11 w-36 rounded-2xl border-[#e4e0d8] bg-[#fbfaf6]">
             <SelectValue placeholder="Type" />
           </SelectTrigger>
           <SelectContent>
@@ -175,8 +163,8 @@ export default function OpportunitiesPage() {
           size="sm"
           className={
             showSaved
-              ? "bg-violet-600 hover:bg-violet-700"
-              : "border-gray-200 bg-white"
+              ? "h-11 rounded-2xl bg-[#12745f] hover:bg-[#0f604f]"
+              : "h-11 rounded-2xl border-[#e4e0d8] bg-[#fbfaf6]"
           }
           onClick={() => setShowSaved(!showSaved)}
         >
@@ -186,23 +174,23 @@ export default function OpportunitiesPage() {
       </div>
 
       {/* Results count */}
-      <p className="text-sm text-gray-500 mb-4">
+      <p className="mb-4 flex items-center gap-2 text-sm text-[#66706b]">
+        <SlidersHorizontal className="h-4 w-4" />
         {filtered.length} opportunities
         {filtered.filter((o) => o.isNew).length > 0 && (
-          <span className="ml-2 text-violet-600 font-medium">
+          <span className="text-[#12745f] font-medium">
             · {filtered.filter((o) => o.isNew).length} new today
           </span>
         )}
       </p>
 
-      {/* Cards */}
       <div className="space-y-3">
         {filtered.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-2xl border border-gray-100">
+          <div className="text-center py-16 bg-white rounded-[28px] border border-[#e8e5dd]">
             <p className="text-gray-400 mb-2">No opportunities match your filters.</p>
             <Button
               variant="link"
-              className="text-violet-600"
+              className="text-[#12745f]"
               onClick={() => {
                 setSearch("");
                 setNicheFilter("all");
@@ -225,6 +213,18 @@ export default function OpportunitiesPage() {
           ))
         )}
       </div>
+      </div>
+    </div>
+  );
+}
+
+function StatPill({ label, value }: { label: string; value: number | string }) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-3">
+      <p className="text-[11px] font-medium uppercase tracking-wide text-white/45">
+        {label}
+      </p>
+      <p className="mt-1 text-2xl font-semibold text-white">{value}</p>
     </div>
   );
 }
@@ -244,51 +244,51 @@ function OpportunityCard({
   );
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:border-violet-200 hover:shadow-sm transition-all">
+    <div className="group rounded-[28px] border border-[#e8e5dd] bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#b7ded1] hover:shadow-[0_18px_50px_rgba(30,25,18,0.08)]">
       <div className="flex items-start gap-4">
-        {/* Platform badge */}
-        <div className="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center shrink-0 text-xs font-bold text-violet-700">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[18px] bg-[#e5f6f0] text-xs font-bold text-[#12745f]">
           {opp.platformName.slice(0, 2).toUpperCase()}
         </div>
 
-        {/* Content */}
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-medium text-gray-500">
+                <span className="text-xs font-semibold uppercase tracking-wide text-[#8a918d]">
                   {opp.platformName}
                 </span>
                 {opp.isNew && (
-                  <Badge className="text-[10px] bg-green-50 text-green-700 border-0 h-4 px-1.5">
+                  <Badge className="h-5 rounded-full border-0 bg-[#e5f6f0] px-2 text-[10px] text-[#12745f]">
                     New
                   </Badge>
                 )}
                 {opp.spotsLeft && opp.spotsLeft <= 5 && (
-                  <Badge className="text-[10px] bg-red-50 text-red-600 border-0 h-4 px-1.5">
+                  <Badge className="h-5 rounded-full border-0 bg-red-50 px-2 text-[10px] text-red-600">
                     {opp.spotsLeft} spots left
                   </Badge>
                 )}
                 {opp.requiresPosting && (
-                  <Badge className="text-[10px] bg-orange-50 text-orange-600 border-0 h-4 px-1.5">
+                  <Badge className="h-5 rounded-full border-0 bg-orange-50 px-2 text-[10px] text-orange-600">
                     Posting required
                   </Badge>
                 )}
                 {opp.country && (
-                  <Badge className="text-[10px] bg-blue-50 text-blue-700 border-0 h-4 px-1.5">
+                  <Badge className="h-5 rounded-full border-0 bg-[#eff3f1] px-2 text-[10px] text-[#56615c]">
                     {opp.country}
                   </Badge>
                 )}
               </div>
-              <h3 className="font-semibold text-gray-900">{opp.brand}</h3>
-              <p className="text-sm text-gray-600 mt-0.5">{opp.title}</p>
+              <h3 className="text-lg font-semibold tracking-tight text-[#111111]">
+                {opp.brand}
+              </h3>
+              <p className="mt-0.5 text-sm text-[#56615c]">{opp.title}</p>
             </div>
 
             <div className="text-right shrink-0">
-              <div className="text-lg font-bold text-green-600">
+              <div className="rounded-2xl bg-[#10231e] px-3 py-2 text-lg font-bold text-[#36d5aa]">
                 {opp.payDisplay}
               </div>
-              <div className="text-xs text-gray-400 mt-0.5">
+              <div className="mt-1.5 text-xs text-[#8a918d]">
                 {opp.contentType === "video"
                   ? "📹 Video"
                   : opp.contentType === "photo"
@@ -298,17 +298,16 @@ function OpportunityCard({
             </div>
           </div>
 
-          <p className="text-sm text-gray-500 mt-2 leading-relaxed line-clamp-2">
+          <p className="mt-3 line-clamp-2 text-sm leading-6 text-[#66706b]">
             {opp.description}
           </p>
 
-          {/* Deliverables */}
           <div className="flex flex-wrap gap-1.5 mt-3">
             {opp.deliverables.map((d) => (
               <Badge
                 key={d}
                 variant="secondary"
-                className="text-xs bg-gray-50 text-gray-600 border-0"
+                className="rounded-full border-0 bg-[#f1eee7] text-xs text-[#5e625f]"
               >
                 {d}
               </Badge>
@@ -317,7 +316,7 @@ function OpportunityCard({
               <Badge
                 key={n}
                 variant="secondary"
-                className="text-xs bg-violet-50 text-violet-700 border-0"
+                className="rounded-full border-0 bg-[#e5f6f0] text-xs text-[#12745f]"
               >
                 {nicheLookup[n]?.emoji} {nicheLookup[n]?.label ?? n}
               </Badge>
@@ -325,7 +324,7 @@ function OpportunityCard({
             {opp.sourceType && (
               <Badge
                 variant="secondary"
-                className="text-xs bg-gray-100 text-gray-500 border-0"
+                className="rounded-full border-0 bg-[#eff3f1] text-xs text-[#68736e]"
               >
                 Source: {opp.sourceType}
               </Badge>
@@ -333,16 +332,15 @@ function OpportunityCard({
             {opp.followerRequirement && (
               <Badge
                 variant="secondary"
-                className="text-xs bg-gray-100 text-gray-500 border-0"
+                className="rounded-full border-0 bg-[#eff3f1] text-xs text-[#68736e]"
               >
                 {opp.followerRequirement}
               </Badge>
             )}
           </div>
 
-          {/* Footer */}
           <div className="flex items-center justify-between mt-4">
-            <div className="flex items-center gap-3 text-xs text-gray-400">
+            <div className="flex items-center gap-3 text-xs text-[#8a918d]">
               <span className="flex items-center gap-1">
                 <Clock className="w-3 h-3" />
                 Posted{" "}
@@ -370,9 +368,9 @@ function OpportunityCard({
                 title={saved ? "Unsave" : "Save"}
               >
                 {saved ? (
-                  <BookmarkCheck className="w-4 h-4 text-violet-600" />
+                  <BookmarkCheck className="w-4 h-4 text-[#12745f]" />
                 ) : (
-                  <Bookmark className="w-4 h-4 text-gray-400" />
+                  <Bookmark className="w-4 h-4 text-[#8a918d]" />
                 )}
               </button>
               <a
@@ -382,7 +380,7 @@ function OpportunityCard({
               >
                 <Button
                   size="sm"
-                  className="bg-violet-600 hover:bg-violet-700 gap-1.5 h-8 text-xs"
+                  className="h-9 gap-1.5 rounded-full bg-[#12745f] px-4 text-xs hover:bg-[#0f604f]"
                 >
                   Apply <ExternalLink className="w-3 h-3" />
                 </Button>

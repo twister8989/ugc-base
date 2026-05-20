@@ -33,8 +33,8 @@ export default function SavedPage() {
 
       {saved.length === 0 ? (
         <div className="rounded-2xl border border-gray-100 bg-white px-6 py-16 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-50">
-            <BookmarkCheck className="h-6 w-6 text-violet-600" />
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e5f6f0]">
+            <BookmarkCheck className="h-6 w-6 text-[#12745f]" />
           </div>
           <h2 className="font-semibold text-gray-900">No saved briefs yet</h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-gray-500">
@@ -42,7 +42,7 @@ export default function SavedPage() {
             back and apply when you have time.
           </p>
           <Link href="/opportunities" className="mt-6 inline-block">
-            <Button className="gap-2 bg-violet-600 hover:bg-violet-700">
+            <Button className="gap-2 rounded-full bg-[#12745f] hover:bg-[#0f604f]">
               <Search className="h-4 w-4" />
               Browse opportunities
             </Button>
@@ -58,7 +58,7 @@ export default function SavedPage() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="mb-2 flex flex-wrap items-center gap-2">
-                    <Badge className="bg-violet-50 text-violet-700 border-0">
+                    <Badge className="bg-[#e5f6f0] text-[#12745f] border-0">
                       {opp.platformName}
                     </Badge>
                     {opp.isNew && (
@@ -98,7 +98,7 @@ export default function SavedPage() {
                     >
                       <Button
                         size="sm"
-                        className="h-8 gap-1.5 bg-violet-600 text-xs hover:bg-violet-700"
+                        className="h-8 gap-1.5 rounded-full bg-[#12745f] text-xs hover:bg-[#0f604f]"
                       >
                         Apply <ExternalLink className="h-3 w-3" />
                       </Button>
