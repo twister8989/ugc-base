@@ -4,6 +4,7 @@
 // Swap with Supabase calls when ready to go to production
 
 import { Niche } from "./platforms-data";
+import { Opportunity } from "./opportunities-data";
 
 export interface UserProfile {
   name: string;
@@ -28,6 +29,7 @@ export interface IncomeEntry {
 const PROFILE_KEY = "ugcbase_profile";
 const INCOME_KEY = "ugcbase_income";
 const SAVED_OPPS_KEY = "ugcbase_saved_opps";
+const IMPORTED_OPPS_KEY = "ugcbase_imported_opps";
 
 export function getProfile(): UserProfile | null {
   if (typeof window === "undefined") return null;
@@ -75,6 +77,31 @@ export function toggleSavedOpportunity(id: string): void {
   if (idx === -1) saved.push(id);
   else saved.splice(idx, 1);
   localStorage.setItem(SAVED_OPPS_KEY, JSON.stringify(saved));
+}
+
+export function getImportedOpportunities(): Opportunity[] {
+  if (typeof window === "undefined") return [];
+  const raw = localStorage.getItem(IMPORTED_OPPS_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+export function addImportedOpportunity(opportunity: Opportunity): void {
+  const opportunities = getImportedOpportunities();
+  localStorage.setItem(
+    IMPORTED_OPPS_KEY,
+    JSON.stringify([opportunity, ...opportunities])
+  );
+}
+
+export function deleteImportedOpportunity(id: string): void {
+  const opportunities = getImportedOpportunities().filter(
+    (opportunity) => opportunity.id !== id
+  );
+  localStorage.setItem(IMPORTED_OPPS_KEY, JSON.stringify(opportunities));
+}
+
+export function clearImportedOpportunities(): void {
+  localStorage.removeItem(IMPORTED_OPPS_KEY);
 }
 
 export function generateId(): string {

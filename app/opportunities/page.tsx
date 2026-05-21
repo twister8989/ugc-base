@@ -23,6 +23,7 @@ import { motion } from "framer-motion";
 import { opportunities, Opportunity } from "@/lib/opportunities-data";
 import { niches, Niche } from "@/lib/platforms-data";
 import {
+  getImportedOpportunities,
   getProfile,
   getSavedOpportunities,
   toggleSavedOpportunity,
@@ -38,11 +39,13 @@ export default function OpportunitiesPage() {
   const [showSaved, setShowSaved] = useState(false);
   const [saved, setSaved] = useState<string[]>([]);
   const [profileNiches, setProfileNiches] = useState<Niche[]>([]);
+  const [allOpportunities, setAllOpportunities] = useState<Opportunity[]>(opportunities);
 
   useEffect(() => {
     setSaved(getSavedOpportunities());
     const profile = getProfile();
     setProfileNiches(profile?.niches ?? []);
+    setAllOpportunities([...getImportedOpportunities(), ...opportunities]);
   }, []);
 
   const handleSave = (id: string) => {
@@ -51,13 +54,13 @@ export default function OpportunitiesPage() {
   };
 
   const platformNames = Array.from(
-    new Set(opportunities.map((o) => o.platformName))
+    new Set(allOpportunities.map((o) => o.platformName))
   ).sort();
-  const newCount = opportunities.filter((o) => o.isNew).length;
-  const sourceCount = new Set(opportunities.map((o) => o.platformId)).size;
-  const paidCount = opportunities.filter((o) => !o.giftedOnly).length;
+  const newCount = allOpportunities.filter((o) => o.isNew).length;
+  const sourceCount = new Set(allOpportunities.map((o) => o.platformId)).size;
+  const paidCount = allOpportunities.filter((o) => !o.giftedOnly).length;
 
-  const filtered = opportunities.filter((opp) => {
+  const filtered = allOpportunities.filter((opp) => {
     if (showSaved && !saved.includes(opp.id)) return false;
     if (nicheFilter !== "all" && !opp.niches.includes(nicheFilter as Niche)) {
       return false;
@@ -100,7 +103,7 @@ export default function OpportunitiesPage() {
                 UGC jobs
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-[#56615c]">
-                {opportunities.length} paid UGC jobs across {sourceCount} platforms.
+                {allOpportunities.length} paid UGC jobs across {sourceCount} platforms.
                 Filter by niche, save the jobs that fit, then click through to
                 apply on the original platform.
               </p>

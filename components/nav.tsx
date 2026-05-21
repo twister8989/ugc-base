@@ -4,13 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "@/components/logo";
-import {
-  Search,
-  LayoutGrid,
-  Bookmark,
-  User,
-  Bell,
-} from "lucide-react";
+import { Search, LayoutGrid, Bookmark, User, Bell, Plus } from "lucide-react";
 
 const navItems = [
   { href: "/opportunities", icon: Search, label: "Opportunities" },
@@ -67,6 +61,13 @@ export function Nav() {
         <button className="w-full rounded-2xl bg-[#12745f] py-2 text-xs font-semibold text-white transition-colors hover:bg-[#0f604f]">
           Join the waitlist
         </button>
+        <Link
+          href="/admin/import"
+          className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-[#68736e] transition-colors hover:text-[#12745f]"
+        >
+          <Plus className="h-3.5 w-3.5" />
+          Import jobs
+        </Link>
       </div>
     </aside>
   );
